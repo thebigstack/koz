@@ -17,6 +17,7 @@ Intended additional features:
  
 Implemented core features: 
 All of the intended core features were implemented.
+
 Implemented additional features:
 1. Message board feature to allow discussion of the site and artist
 2. Link to random article in place of “Album of the Day”
