@@ -1,0 +1,10 @@
+<h2>Users</h2>
+<br><p><b>List of registered users</b></p>
+<% @list3.each do |liste| %>
+<article>
+    <p>
+        <i>Username:</i> <b><font color = "blue"><%= liste.username %><br></font></b>
+        <i>Date joined:</i> <font color = "blue"><%= liste.date_joined %><br></font>
+    </p>
+</article>
+<% end %>

@@ -1,0 +1,37 @@
+<h2>Message board</h2><br>
+        <% @comments.each do |x| %>
+          <i><%= x.comment %></i><br>
+          posted by <font color = "blue"><%= x.author %></font> <i>(#<%= x.id %>)</i><hr><br>
+        <% end %> 
+        <% if $credentials %>
+          <% if $credentials[0] != ' ' %>
+              <form action="/boardpost" method="post" id="edit">
+                <textarea rows="3" cols="80" name="posted_message"></textarea><br>
+                <input type="hidden" name="_method" value="put">
+                Submit your post:
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                
+                <input type="submit" value="Post"><br><br>
+              </form>
+          <% else %>
+            (you must be logged in to post a comment, <a href="/Login">log in?</a>)
+          <% end %>
+        <% else %>
+          (you must be logged in to post a comment, <a href="/Login">log in?</a>)
+        <% end %>
+        <% if $credentials %>
+          <% if $credentials[0] == "Admin" %>
+            <b>Admin Options:</b> Delete comment number<br>
+            <form action="/deletecomment" method="post">
+            Comment ID to delete :<input type="number" name="id">
+            <input type="submit" value="Delete">
+          <% else %>
+          <% end %>
+        <% else %>  
+        <% end %>

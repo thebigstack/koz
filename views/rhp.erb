@@ -1,0 +1,9 @@
+<h2>Red House Painters</h2>
+
+<form action="/rhp" method="post" id="edit">
+<input type="hidden" name="_method" value="put">
+<textarea rows="25" cols="115" name="message"><%= $rhp %></textarea>
+<input type="submit" value="Update">
+<input type="reset">
+</form>
+<p><i>Existing article contains <%= @words %> words and <%= $rhp.size %> characters.</i></p>

@@ -1,0 +1,9 @@
+<h2>Biography</h2>
+
+<form action="/bio" method="post" id="edit">
+<input type="hidden" name="_method" value="put">
+<textarea rows="25" cols="115" name="message"><%= $bio %></textarea>
+<input type="submit" value="Update">
+<input type="reset">
+</form>
+<p><i>Existing article contains <%= @words %> words and <%= $bio.size %> characters.</i></p>

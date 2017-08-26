@@ -1,0 +1,40 @@
+<h2>Admin controls page</h2>
+
+<br><p><b><font size="4">Create a New Account:</font></b></p>
+<form action="/admincreate" method="post">
+Username:<input type="text" name="username"><br>
+Password: <input type="password" name="password"><br>
+<input type="submit" value="Create">
+</form>
+<hr>
+<p><b><font size="4">List of registered users:</font></b></p>
+<% @list2.each do |liste| %>
+<article>
+    <p>
+        <i>Username:</i> <%= liste.username %><br>
+        <i>Date joined:</i> <%= liste.date_joined %><br>
+        <i>Application comment:</i> <%= liste.application %><br>
+        <i>Edit privileges: </i><b><font color = "red"><%= liste.edit %></font></b>
+
+        <br>
+        <form action="/user/<%= liste.username %>" method="post" id="edit">
+            <input type="hidden" name="_method" value="put">
+            <input type="checkbox" name="edit" <%= "checked" if liste.edit %>>
+            <input type="submit" value="Allow Edit?">
+        </form>
+        <b><a href="/user/delete/<%= liste.username %>">Delete User?</a></b><br>
+    </p>
+</article>
+<% end %>
+
+<hr><p>
+<h4 style="font-size:200%; color:#242424;">Reset pages to default versions:</font></h4>
+<br>
+<b>
+<a href="/bioreset"><u>Biography</u></a>&nbsp;&nbsp;&nbsp;
+-&nbsp;&nbsp;&nbsp;<a href="/skmreset"><u>Sun Kil Moon</u></a> &nbsp;&nbsp;&nbsp;
+-&nbsp;&nbsp;&nbsp;<a href="/rhpreset"><u>Red House Painters</u></a> &nbsp;&nbsp;&nbsp;
+-&nbsp;&nbsp;&nbsp;<a href="/soloreset"><u>Solo</u></a>
+</p>
+</b>
+<br>

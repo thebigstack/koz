@@ -1,0 +1,67 @@
+<html>
+<link rel="stylesheet" href="/css/styles.css">
+<link rel="stylesheet" href="/css/bootstrap.css">
+
+<head><title> Even more perils from the sea.</title></head>
+
+<body>
+  <div class="wrapper">
+
+  <div class="header">
+    <h1> Even more perils from the sea</h1>
+    <ol class="nav nav-tabs">
+    <a href="/home"><li>Home</li></a>
+    <a href="/archive"><li>Archive</li></a>
+    <a href="/users"><li>Users</li></a>
+    <a href="/about"><li>About</li></a>
+
+    <% if $credentials %>
+    <% if $credentials[0] != '' %>
+        <a href="/user/<%= $credentials[0] %>"><b><li><%= $credentials[0] %></li></b></a>
+        <a href="/logout"><li>Logout</li></a>
+        <% if $credentials[0] == "Admin" %>
+            <br><a href="/admincontrols"><li><b>Admin Controls</b></li></a>
+        <% end %>
+    <% else %>
+        <a href="/login"><li>Login</li></a>
+        <a href="/createaccount"><li>Register</li></a>
+    <% end %>
+    <% else %>
+    <a href="/login"><li>Login</li></a>
+    <a href="/createaccount"><li>Register</li></a>
+    <% end %>
+  </div>
+
+  <div class="content"> <%= yield %> </div>
+
+<% @articlelist = ["bio", "skm", "rhp", "solo"] %>
+<% @randomarticle = @articlelist[rand(@articlelist.length)] %>
+
+  <div class="side_bar">
+    <div class="nav">
+      <a href="/bio"><p>Biography</p></a>
+      <a href="/skm"><p>Sun Kil Moon</p></a>
+      <a href="/rhp"><p>Red House Painters</p></a>
+      <a href="/solo"><p>Solo work</p></a>
+      <a href="/<%= @randomarticle %>"><p>Random article</p></a>
+      <a href="/board"><p>Message board</p></a>
+  </div></div>
+
+<% @now = Date.today %>
+<% @albumrelease = Date.civil(2017,2,28) %>
+<% @difference_in_days = (@albumrelease - @now -1).to_i %>
+  <div class="footer">
+    <p>There are <b><%= @difference_in_days %></b> days left until the new Sun Kil Moon album is released!
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    Copyright 2016: thebigstack</p>
+  </div>
+
+  </div>
+</body>

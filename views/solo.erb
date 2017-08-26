@@ -1,0 +1,9 @@
+<h2>Solo Work</h2>
+
+<form action="/solo" method="post" id="edit">
+<input type="hidden" name="_method" value="put">
+<textarea rows="25" cols="115" name="message"><%= $solo %></textarea>
+<input type="submit" value="Update">
+<input type="reset">
+</form>
+<p><i>Existing article contains <%= @words %> words and <%= $solo.size %> characters.</i></p>

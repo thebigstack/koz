@@ -1,0 +1,35 @@
+<h1>Welcome</h1>
+<p>This website is a wiki about the music of Mark Kozelek.</p>
+<p>The site relies on users like you - if there is anything you'd like to add please create an <u><a href="/createaccount">account</a></u> saying what you would like to edit.</p>
+<p>Don't forget to visit the <a href="/board">message board</a> to post any comments you have.</p>
+<p>
+<div class="albums" style="max-width:700px;position:relative">
+    <img class="coverSlides" src="/albums/gotgh.jpg" style="width:100%">
+    <img class="coverSlides" src="/albums/tc.jpg" style="width:100%">
+    <img class="coverSlides" src="/albums/april.jpg" style="width:100%">
+    <img class="coverSlides" src="/albums/afp.jpeg" style="width:100%">
+    <img class="coverSlides" src="/albums/atl.jpg" style="width:100%">
+    <img class="coverSlides" src="/albums/benji.jpg" style="width:100%">
+    <img class="coverSlides" src="/albums/ut.jpg" style="width:100%">
+    <img class="coverSlides" src="/albums/jskm.jpg" style="width:100%">
+</div>
+
+<script>
+var myIndex = 0;
+carousel();
+
+function carousel() {
+    var i;
+    var x = document.getElementsByClassName("coverSlides");
+    for (i = 0; i < x.length; i++) {
+       x[i].style.display = "none";  
+    }
+    myIndex++;
+    if (myIndex > x.length) {myIndex = 1}    
+    x[myIndex-1].style.display = "block";  
+    setTimeout(carousel, 4000); // Change image every 4 seconds
+}
+</script>
+
+</body>
+</p>
